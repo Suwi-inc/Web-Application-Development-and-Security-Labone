@@ -4,14 +4,14 @@
 timestamp() { 
 date 
 }
-if [[ -f $1 ]] || [[ -d $2 ]]; 
-then
-  touch $1
-  timestamp >> $1
-  echo "Modified"  >> $1
-  mv $1 $2
-else
-echo "incorrect number of parameters"
+mkdir -p /home/$USER/newdirexample
+touch "example1.txt"
 
-fi
+fname="example1.txt"
+fdir="/home/$USER/newdirexample"
+
+timestamp >> $fname
+echo "Modified"  >> $fname
+
+mv $fname $fdir
 echo "done"
